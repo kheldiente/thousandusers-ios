@@ -19,6 +19,9 @@
 		FD378E4A2D6B239600910A1D /* UserListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E492D6B239600910A1D /* UserListItemView.swift */; };
 		FD378E4E2D6B27A900910A1D /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E4D2D6B27A900910A1D /* UserListViewModel.swift */; };
 		FD378E502D6B285E00910A1D /* UserListUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E4F2D6B285E00910A1D /* UserListUiState.swift */; };
+		FD378E542D6B623000910A1D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E532D6B623000910A1D /* Utils.swift */; };
+		FD378E572D6B633300910A1D /* thousand_users.json in Resources */ = {isa = PBXBuildFile; fileRef = FD378E562D6B633300910A1D /* thousand_users.json */; };
+		FD378E5B2D6B63BF00910A1D /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E5A2D6B63BF00910A1D /* UserRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,9 @@
 		FD378E492D6B239600910A1D /* UserListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListItemView.swift; sourceTree = "<group>"; };
 		FD378E4D2D6B27A900910A1D /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		FD378E4F2D6B285E00910A1D /* UserListUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListUiState.swift; sourceTree = "<group>"; };
+		FD378E532D6B623000910A1D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		FD378E562D6B633300910A1D /* thousand_users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = thousand_users.json; sourceTree = "<group>"; };
+		FD378E5A2D6B63BF00910A1D /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,10 +110,12 @@
 		FD378E162D6AC2D900910A1D /* ThousandUsers */ = {
 			isa = PBXGroup;
 			children = (
+				FD378E522D6B5FC000910A1D /* Repository */,
 				FD378E4B2D6B273900910A1D /* Features */,
 				FD378E412D6B202A00910A1D /* Models */,
 				FD378E442D6B20C800910A1D /* Views */,
 				FD378E512D6B2CAF00910A1D /* Utils */,
+				FD378E552D6B631600910A1D /* Resources */,
 				FD378E172D6AC2D900910A1D /* ThousandUsersApp.swift */,
 				FD378E1B2D6AC2DC00910A1D /* Assets.xcassets */,
 				FD378E1D2D6AC2DC00910A1D /* Preview Content */,
@@ -178,8 +186,33 @@
 		FD378E512D6B2CAF00910A1D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FD378E532D6B623000910A1D /* Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		FD378E522D6B5FC000910A1D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				FD378E592D6B63A600910A1D /* Local */,
+				FD378E5A2D6B63BF00910A1D /* UserRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		FD378E552D6B631600910A1D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FD378E562D6B633300910A1D /* thousand_users.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FD378E592D6B63A600910A1D /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +321,7 @@
 			files = (
 				FD378E1F2D6AC2DC00910A1D /* Preview Assets.xcassets in Resources */,
 				FD378E1C2D6AC2DC00910A1D /* Assets.xcassets in Resources */,
+				FD378E572D6B633300910A1D /* thousand_users.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,11 +348,13 @@
 			files = (
 				FD378E1A2D6AC2D900910A1D /* UserListView.swift in Sources */,
 				FD378E502D6B285E00910A1D /* UserListUiState.swift in Sources */,
+				FD378E5B2D6B63BF00910A1D /* UserRepository.swift in Sources */,
 				FD378E4E2D6B27A900910A1D /* UserListViewModel.swift in Sources */,
 				FD378E4A2D6B239600910A1D /* UserListItemView.swift in Sources */,
 				FD378E482D6B232B00910A1D /* LoadingView.swift in Sources */,
 				FD378E182D6AC2D900910A1D /* ThousandUsersApp.swift in Sources */,
 				FD378E432D6B204C00910A1D /* User.swift in Sources */,
+				FD378E542D6B623000910A1D /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,11 +7,20 @@
 
 import Foundation
 
-struct User: Identifiable, Codable {
+struct User: Codable, Identifiable {
     let id: Int
     let firstName: String
     let lastName: String
     let email: String
     let gender: String
     let status: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case email = "email"
+        case gender = "gender"
+        case status = "status"
+    }
 }

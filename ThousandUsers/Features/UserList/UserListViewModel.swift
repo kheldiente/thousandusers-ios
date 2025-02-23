@@ -8,9 +8,12 @@
 import Foundation
 import Combine
 
+@MainActor
 class UserListViewModel: ObservableObject {
     
     @Published var uiState: UserListUiState = UserListUiState()
+    
+    private let userDataSource: UserDataSource = UserRepository()
     
     init() {
         uiState.users.append(
@@ -22,7 +25,10 @@ class UserListViewModel: ObservableObject {
     }
     
     func loadUsers() {
-        // Check if to load next page
+        Task {
+            let usersFromFile = await userDataSource.getUsers()
+            uiState.users = usersFromFile
+        }
     }
     
 }

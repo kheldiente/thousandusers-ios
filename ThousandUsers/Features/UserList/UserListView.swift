@@ -18,6 +18,9 @@ struct UserListView: View {
             List {
                 ForEach(viewModel.uiState.users) { user in
                     UserListItemView(user: user)
+                        .onAppear {
+                            viewModel.loadUsers()
+                        }
                 }
             }
         }

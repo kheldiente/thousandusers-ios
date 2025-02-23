@@ -26,7 +26,6 @@ struct UserListItemView: View {
                 .font(.subheadline)
                 .foregroundColor(.secondary)
         }
-        .padding(.vertical, 8)
     }
     
 }
