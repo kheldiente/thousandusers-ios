@@ -11,7 +11,7 @@ import SwiftUI
 struct ThousandUsersApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            UserListView()
         }
     }
 }
