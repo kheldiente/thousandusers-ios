@@ -15,9 +15,14 @@ struct LoadingView: View {
             Spacer()
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle())
+                .scaleEffect(CGSize(width: 2, height: 2))
             Spacer()
         }
         .padding()
     }
     
+}
+
+#Preview {
+    LoadingView()
 }

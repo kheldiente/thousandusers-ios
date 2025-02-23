@@ -16,6 +16,9 @@ struct UserListItemView: View {
         VStack(alignment: .leading, spacing: 4) {
             Text("\(user.firstName) \(user.lastName)")
                 .font(.headline)
+            Text("ID: \(user.id)")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
             Text("Email: \(user.email)")
                 .font(.subheadline)
                 .foregroundColor(.secondary)

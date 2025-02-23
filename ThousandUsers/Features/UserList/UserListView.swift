@@ -19,14 +19,31 @@ struct UserListView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.uiState.users) { user in
-                    UserListItemView(user: user)
-                        .onAppear {
-                            viewModel.loadMoreUsers()
+            VStack {
+                if viewModel.uiState.isLoading {
+                    LoadingView()
+                } else {
+                    List {
+                        ForEach(viewModel.uiState.users) { user in
+                            UserListItemView(user: user)
                         }
+                        
+                        if viewModel.uiState.hasMoreUsers {
+                            ZStack {
+                                Color.clear
+                                    .frame(height: 50)
+                                    .onAppear {
+                                        viewModel.loadMoreUsers()
+                                    }
+                                if viewModel.uiState.isLoadingMoreUsers {
+                                    LoadingView()
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
+        .navigationTitle("Users")
     }
 }

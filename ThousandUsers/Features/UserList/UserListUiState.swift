@@ -10,4 +10,6 @@ import Foundation
 struct UserListUiState {
     var users: [User] = []
     var isLoading: Bool = false
+    var hasMoreUsers: Bool = false
+    var isLoadingMoreUsers: Bool = false
 }
