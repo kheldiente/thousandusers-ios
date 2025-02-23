@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct ThousandUsersApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            UserListView()
+            UserListView(
+                viewModel: UserListViewModel(
+                    dataSource: UserRepository(context: PersistenceController.shared.container.viewContext)
+                )
+            )
         }
     }
+    
 }

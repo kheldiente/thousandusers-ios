@@ -22,6 +22,9 @@
 		FD378E542D6B623000910A1D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E532D6B623000910A1D /* Utils.swift */; };
 		FD378E572D6B633300910A1D /* thousand_users.json in Resources */ = {isa = PBXBuildFile; fileRef = FD378E562D6B633300910A1D /* thousand_users.json */; };
 		FD378E5B2D6B63BF00910A1D /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E5A2D6B63BF00910A1D /* UserRepository.swift */; };
+		FD378E5D2D6B6A2500910A1D /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E5C2D6B6A2500910A1D /* MockDataProvider.swift */; };
+		FD378E602D6B735E00910A1D /* thousandusers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD378E5E2D6B735E00910A1D /* thousandusers.xcdatamodeld */; };
+		FD378E622D6B9CB300910A1D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E612D6B9CB300910A1D /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,9 @@
 		FD378E532D6B623000910A1D /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		FD378E562D6B633300910A1D /* thousand_users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = thousand_users.json; sourceTree = "<group>"; };
 		FD378E5A2D6B63BF00910A1D /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		FD378E5C2D6B6A2500910A1D /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
+		FD378E5F2D6B735E00910A1D /* thousandusers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = thousandusers.xcdatamodel; sourceTree = "<group>"; };
+		FD378E612D6B9CB300910A1D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 				FD378E172D6AC2D900910A1D /* ThousandUsersApp.swift */,
 				FD378E1B2D6AC2DC00910A1D /* Assets.xcassets */,
 				FD378E1D2D6AC2DC00910A1D /* Preview Content */,
+				FD378E5E2D6B735E00910A1D /* thousandusers.xcdatamodeld */,
 			);
 			path = ThousandUsers;
 			sourceTree = "<group>";
@@ -211,6 +218,8 @@
 		FD378E592D6B63A600910A1D /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				FD378E5C2D6B6A2500910A1D /* MockDataProvider.swift */,
+				FD378E612D6B9CB300910A1D /* PersistenceController.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -347,7 +356,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD378E1A2D6AC2D900910A1D /* UserListView.swift in Sources */,
+				FD378E602D6B735E00910A1D /* thousandusers.xcdatamodeld in Sources */,
 				FD378E502D6B285E00910A1D /* UserListUiState.swift in Sources */,
+				FD378E622D6B9CB300910A1D /* PersistenceController.swift in Sources */,
+				FD378E5D2D6B6A2500910A1D /* MockDataProvider.swift in Sources */,
 				FD378E5B2D6B63BF00910A1D /* UserRepository.swift in Sources */,
 				FD378E4E2D6B27A900910A1D /* UserListViewModel.swift in Sources */,
 				FD378E4A2D6B239600910A1D /* UserListItemView.swift in Sources */,
@@ -684,6 +696,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FD378E5E2D6B735E00910A1D /* thousandusers.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FD378E5F2D6B735E00910A1D /* thousandusers.xcdatamodel */,
+			);
+			currentVersion = FD378E5F2D6B735E00910A1D /* thousandusers.xcdatamodel */;
+			path = thousandusers.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FD378E0C2D6AC2D900910A1D /* Project object */;
 }

@@ -11,7 +11,11 @@ import Combine
 struct UserListView: View {
     
     @StateObject 
-    private var viewModel = UserListViewModel()
+    private var viewModel: UserListViewModel
+    
+    init(viewModel: UserListViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
     
     var body: some View {
         NavigationView {
@@ -19,14 +23,10 @@ struct UserListView: View {
                 ForEach(viewModel.uiState.users) { user in
                     UserListItemView(user: user)
                         .onAppear {
-                            viewModel.loadUsers()
+                            viewModel.loadMoreUsers()
                         }
                 }
             }
         }
     }
-}
-
-#Preview {
-    UserListView()
 }
