@@ -23,6 +23,16 @@ struct UserListView: View {
                 if viewModel.uiState.isLoading {
                     LoadingView()
                 } else {
+                    SearchField(
+                        searchText: $viewModel.uiState.searchQuery,
+                        hint: "Search user(s) by name...",
+                        clear: {
+                            viewModel.onSearchQueryChange(query: "")
+                        },
+                        onQueryChange: { query in
+                            viewModel.onSearchQueryChange(query: query)
+                        }
+                    )
                     List {
                         ForEach(viewModel.uiState.users) { user in
                             UserListItemView(user: user)
@@ -44,6 +54,5 @@ struct UserListView: View {
                 }
             }
         }
-        .navigationTitle("Users")
     }
 }

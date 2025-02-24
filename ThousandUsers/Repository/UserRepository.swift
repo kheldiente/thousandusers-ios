@@ -11,8 +11,8 @@ import Combine
 
 protocol UserDataSource {
     func populateDatabaseIfNeeded() async
-    func getUsers(limit: Int, offset: Int) async throws -> [User]
-    func getUserCount() async throws -> Int
+    func getUsers(keyword: String, limit: Int, offset: Int) async throws -> [User]
+    func getUserCount(keyword: String) async throws -> Int
 }
 
 class UserRepository: UserDataSource {
@@ -25,7 +25,7 @@ class UserRepository: UserDataSource {
     
     func populateDatabaseIfNeeded() async {
         do {
-            if (try await getUserCount() > 0) {
+            if (try await getUserCount(keyword: "") > 0) {
                 print("Database populated!")
                 return
             }
@@ -57,10 +57,19 @@ class UserRepository: UserDataSource {
         }
     }
     
-    func getUsers(limit: Int, offset: Int) async throws -> [User] {
+    func getUsers(keyword: String, limit: Int, offset: Int) async throws -> [User] {
         try await withCheckedThrowingContinuation { continuation in
             context.performAndWait {
                 let fetchRequest: NSFetchRequest<UserEntity> = UserEntity.fetchRequest()
+                
+                if let predicate = getUserQueryPredicate(keyword) {
+                    fetchRequest.predicate = predicate
+                    fetchRequest.sortDescriptors = [
+                        NSSortDescriptor(keyPath: \UserEntity.lastName, ascending: true),
+                        NSSortDescriptor(keyPath: \UserEntity.firstName, ascending: true)
+                    ]
+                }
+                
                 fetchRequest.fetchLimit = limit
                 fetchRequest.fetchOffset = offset
 
@@ -89,10 +98,15 @@ class UserRepository: UserDataSource {
         }
     }
     
-    func getUserCount() async throws -> Int {
+    func getUserCount(keyword: String) async throws -> Int {
         try await withCheckedThrowingContinuation { continuation in
             context.performAndWait {
                 let fetchRequest = UserEntity.fetchRequest()
+                
+                if let predicate = getUserQueryPredicate(keyword) {
+                    fetchRequest.predicate = predicate
+                }
+                
                 fetchRequest.resultType = .countResultType
                 
                 do {
@@ -103,6 +117,17 @@ class UserRepository: UserDataSource {
                 }
             }
         }
+    }
+    
+    private func getUserQueryPredicate(_ keyword: String) -> NSPredicate? {
+        if keyword.isEmpty {
+            return nil
+        }
+        
+        return NSPredicate(
+            format: "firstName CONTAINS[cd] %@ OR lastName CONTAINS[cd] %@",
+            keyword, keyword
+        )
     }
     
 }

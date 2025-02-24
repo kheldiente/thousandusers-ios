@@ -25,6 +25,7 @@
 		FD378E602D6B735E00910A1D /* thousandusers.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD378E5E2D6B735E00910A1D /* thousandusers.xcdatamodeld */; };
 		FD378E622D6B9CB300910A1D /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E612D6B9CB300910A1D /* PersistenceController.swift */; };
 		FD378E682D6BADCD00910A1D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E672D6BADCD00910A1D /* Constants.swift */; };
+		FD378E6A2D6C08DD00910A1D /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD378E692D6C08DD00910A1D /* SearchField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		FD378E5F2D6B735E00910A1D /* thousandusers.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = thousandusers.xcdatamodel; sourceTree = "<group>"; };
 		FD378E612D6B9CB300910A1D /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		FD378E672D6BADCD00910A1D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FD378E692D6C08DD00910A1D /* SearchField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				FD378E472D6B232B00910A1D /* LoadingView.swift */,
+				FD378E692D6C08DD00910A1D /* SearchField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				FD378E4A2D6B239600910A1D /* UserListItemView.swift in Sources */,
 				FD378E482D6B232B00910A1D /* LoadingView.swift in Sources */,
 				FD378E182D6AC2D900910A1D /* ThousandUsersApp.swift in Sources */,
+				FD378E6A2D6C08DD00910A1D /* SearchField.swift in Sources */,
 				FD378E432D6B204C00910A1D /* User.swift in Sources */,
 				FD378E682D6BADCD00910A1D /* Constants.swift in Sources */,
 			);

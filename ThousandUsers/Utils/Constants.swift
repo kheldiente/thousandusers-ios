@@ -11,4 +11,5 @@ struct Constants {
     static let initPage = 0
     static let pageLimit = 20
     static let delayToShowList = 500
+    static let searchDelay = 200
 }

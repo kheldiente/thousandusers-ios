@@ -12,4 +12,5 @@ struct UserListUiState {
     var isLoading: Bool = false
     var hasMoreUsers: Bool = false
     var isLoadingMoreUsers: Bool = false
+    var searchQuery: String = ""
 }

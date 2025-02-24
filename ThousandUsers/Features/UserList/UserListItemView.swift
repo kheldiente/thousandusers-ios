@@ -32,9 +32,3 @@ struct UserListItemView: View {
     }
     
 }
-
-#Preview {
-    UserListItemView(
-        user: User(id: 1, firstName: "Mike", lastName: "Diente", email: "mikediente@gmail.com", gender: "Male", status: true)
-    )
-}

@@ -15,13 +15,24 @@ class UserListViewModel: ObservableObject {
     var uiState: UserListUiState = UserListUiState()
     
     private let userDataSource: UserDataSource
+    
     private var currentPage = Constants.initPage
     private var maxUserCount = 0
+    private var searchQuery = ""
+    private var searchTask: Task<Void, Never>?
     
     init(dataSource: UserDataSource) {
         userDataSource = dataSource
         populateDbIfNeeded()
-        loadInitData()
+        
+        Task {
+            uiState.isLoading = true
+            try await Task.sleep(for: .milliseconds(Constants.delayToShowList))
+            
+            loadInitData()
+            
+            uiState.isLoading = false
+        }
     }
     
     private func populateDbIfNeeded() {
@@ -32,21 +43,29 @@ class UserListViewModel: ObservableObject {
     
     func loadInitData() {
         Task {
-            uiState.isLoading = true
-            try await Task.sleep(for: .milliseconds(Constants.delayToShowList))
-            
             currentPage = Constants.initPage
-            maxUserCount = try await userDataSource.getUserCount()
+            maxUserCount = try await userDataSource.getUserCount(keyword: searchQuery)
             
             let users = try await userDataSource.getUsers(
+                keyword: searchQuery,
                 limit: Constants.pageLimit,
                 offset: currentPage * Constants.pageLimit
             )
             
             uiState.users = users
             uiState.hasMoreUsers = users.count < maxUserCount
-            uiState.isLoading = false
         }
+    }
+    
+    func onSearchQueryChange(query: String = "") {
+        searchTask?.cancel()
+        searchQuery = query
+        
+        searchTask = Task {
+            uiState.searchQuery = query
+            loadInitData()
+        }
+        
     }
     
     func loadMoreUsers() {
@@ -65,6 +84,7 @@ class UserListViewModel: ObservableObject {
             
             currentPage = currentPage + 1
             let newUsers = try await userDataSource.getUsers(
+                keyword: searchQuery,
                 limit: Constants.pageLimit,
                 offset: currentPage * Constants.pageLimit
             )
