@@ -24,6 +24,8 @@ struct SearchField: View {
             TextField(hint, text: $searchText)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.none)
+                .autocorrectionDisabled()
+                .submitLabel(.done)
                 .onChange(of: searchText) {
                     onQueryChange($0)
                 }
